@@ -1,0 +1,23 @@
+<!-- Babel's browser.js is deprecated -->
+<!--<script src="../../node_modules/babel-core/lib/api/browser.js"></script>-->
+
+<!-- Didn't work. Babel.js:2872. Exception: "Unknown option: base.modules" -->
+<!--<script src="../../node_modules/babel-standalone/babel.js"></script>-->
+
+<script src="../../node_modules/traceur/bin/traceur.js"></script>
+<script src="../../node_modules/es6-module-loader/dist/es6-module-loader-dev.js"></script>
+<script>
+  //System.transpiler = 'Babel';
+
+  // The dynamic loader returns a Module object, which contains getters for the named exports (in this case, q).
+  System.import('./mymodule.js').then(function(m) {
+    console.log('This is a dynamic import!');
+    new m.myClass();
+  });
+</script>
+<script type="module">
+  // loads the 'myClass' export from 'mymodule.js' in the same path as the page
+  import { myClass } from 'mymodule.js';
+  console.log('This is inside script type module!');
+  new myClass(); // -> 'this is an es6 class!'
+</script>

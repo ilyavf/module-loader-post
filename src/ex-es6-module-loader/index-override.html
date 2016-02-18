@@ -1,0 +1,26 @@
+<script src="../../node_modules/traceur/bin/traceur.js"></script>
+<script src="../../node_modules/es6-module-loader/dist/es6-module-loader-dev.js"></script>
+<script src="../../node_modules/coffee-script-browser/index.js"></script>
+<script>
+  // Translate: Given module source, make any source modifications.
+  // https://github.com/ModuleLoader/es6-module-loader/blob/master/docs/loader-extensions.md#extending-the-es6-loader
+
+  // Lets override translate
+  // https://github.com/ModuleLoader/es6-module-loader/blob/master/src/loader.js#L798
+
+  // store the old function
+  var systemTranslate = System.translate;
+  // override the function
+  System.translate = function(load) {
+    console.log('translate override!', load);
+    if (load.name && load.name.search('.coffee') !== -1) {
+      load.source = CoffeeScript.compile(load.source);
+      console.log('Lets compile some coffee script!');
+    }
+    return systemTranslate.call(this, load);
+  };
+
+  System.import('./ex.coffee').then(function(m) {
+    console.log('This is a dynamic coffee script file import!');
+  });
+</script>
