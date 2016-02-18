@@ -1,0 +1,29 @@
+{
+  "name": "steal-plugin-post",
+  "version": "1.0.0",
+  "description": "Create a plugin for StealJS and write a blog post about Module Loaders",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ilyavf/steal-plugin-post.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ilyavf/steal-plugin-post/issues"
+  },
+  "homepage": "https://github.com/ilyavf/steal-plugin-post#readme",
+  "dependencies": {
+    "babel-core": "^6.5.2",
+    "babel-standalone": "^6.4.4",
+    "coffee-script": "^1.10.0",
+    "coffee-script-browser": "^1.4.0",
+    "es6-module-loader": "^0.17.11",
+    "steal": "^0.13.2",
+    "steal-coffee": "0.0.1",
+    "steal-sass": "^1.0.1"
+  }
+}
