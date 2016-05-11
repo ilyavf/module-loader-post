@@ -1,3 +1,6 @@
 import './styles.scss!';
+import * as math from './math.coffee!';
 
-console.log('Here is the App');
+var test = math.root(9);
+
+console.log('Here is the App. CoffeeScript: Square root of 9 is ' + test);

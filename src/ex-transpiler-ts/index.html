@@ -1,0 +1,13 @@
+
+<script src="../../node_modules/es6-module-loader/dist/es6-module-loader-dev.js"></script>
+
+<script>
+  System.transpiler = 'typescript';
+
+  // The dynamic loader returns a Module object, which contains getters for the named exports (in this case, q).
+  System.import('./mymodule.ts').then(function(m) {
+    console.log('This is a dynamic import!');
+    console.log('m.root(2) = ', m.root(2));
+    //new m.myClass();
+  });
+</script>

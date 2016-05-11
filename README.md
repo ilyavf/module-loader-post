@@ -48,6 +48,11 @@ Plan:
 - SystemJS Universal dynamic module loader
  - https://github.com/systemjs/systemjs
     This is an example of a universal module loader based on _ES6 Module Loader Polyfill_ for loading AMD, CommonJS and globals.
+ - Creating a plugin:
+    https://github.com/systemjs/systemjs/blob/master/docs/creating-plugins.md
+ - Source maps:
+    https://github.com/forresto/system-coffee/commit/8277d7b7557fde9a9c900c3d4149a0ab9c77a0fb
+    https://github.com/systemjs/systemjs/commit/2a30444#diff-9254b9e79d2209a
 
 - StealJS
  - http://blog.bitovi.com/introducing-stealjs/
@@ -61,3 +66,6 @@ Plan:
  - https://www.npmjs.com/package/steal-template
  - https://www.npmjs.com/package/steal-less
  - https://www.npmjs.com/package/steal-css
+
+- TypeScript
+ - https://learnangular2.wordpress.com/2016/01/09/configure-systemjs-to-transpile-typescript-files-on-the-fly/
