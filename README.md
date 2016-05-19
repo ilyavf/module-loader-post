@@ -61,7 +61,7 @@ When you override loader’s hook method you can also call the original method p
 > - “::” can be read as “has type of”;
 > - the arrow sign “→” can be read as “returns”;
 > - “args → result” defines a type as a function that takes one or multiple arguments;
-> - (<arg1>, <arg2>) describes the arguments (one or more);
+> - (\<arg1\>, \<arg2\>) describes the arguments (one or more);
 > - the result type will follow the arrow sign.
 
 #### Normalize :: (name, referrerName, referrerAddress) → normalizedModuleName
@@ -94,7 +94,7 @@ Receives loadRequest with source property which is a result of the fetch. The pu
 
 Example:
 ```
-	loadRequest = {		    →	    “import Math from ‘Math’;↳↳var a = 10; ...”
+	loadRequest = {		              →	    “import Math from ‘Math’;↳↳var a = 10; ...”
     name: “utils/math”,
     address: “http://.../math.js”
     source: “import Math from ‘Math’;↳↳let a = 10; ...”
@@ -106,10 +106,10 @@ Instantiating the translated source. Receives loadRequest with source property a
 
 Example:
 ```
-	loadRequest = {			→	 instantiationRequest = {
-    name: “utils/math”,				    deps: [],
-    address: “http://...math.js”,			    execute: fn
-    source: translatedSource,			}
+	loadRequest = {			            →   instantiationRequest = {
+    name: “utils/math”,				          deps: [],
+    address: “http://...math.js”,			  execute: fn
+    source: translatedSource,			    }
     metadata: {...}
 	}
 ```
@@ -120,7 +120,7 @@ The module is evaluated during the linking process. First, all of the modules it
 
 Module feature is not yet standardized, but there is ES6 Module Loader Polyfill [6]. It provides an asynchronous loader (System.import) to dynamically load ES6 modules. It also supports Traceur, Babel and TypeScript for compiling ES6 modules and syntax into ES5 in the browser with source map support.
 
-If you want to work with modules that are built with different standards (AMD, CommonJS, ES6), there is an option for a Universal dynamic module loader - SystemJS which was implemented
+If you want to work with modules that are built with different standards (AMD, CommonJS, ES6), there is an option for a Universal dynamic module loader - SystemJS.
 
 ### Let’s write a plugin
 
@@ -137,9 +137,9 @@ exports.translate = function(load) {
   // For CoffeeScript compile options see [7].
   var result = CoffeeScript.compile(load.source, {
     sourceMap: true,	// Generate source map.
-                   	// If true then returns
-// 	{js, v3SourceMap, sourceMap}
-// false then returns just js string.
+                      // If true then returns
+                      // 	{js, v3SourceMap, sourceMap}
+                      // false then returns just js string.
     sourceFiles: [load.address + '!orig'],
 
     bare: true		// Compile without a top-level fn wrapper
